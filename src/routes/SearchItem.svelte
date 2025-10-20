@@ -29,9 +29,11 @@
 		onblur={() => (isFocused = false)}
 	/>
 	{#if isFocused && searchTerm !== '' && filteredNames.length > 0}
-		<ul class="results-list">
+		<ul class="results-list" role="listbox">
 			{#each filteredNames as name}
-				<li onmousedown={() => selectName(name)}>{name}</li>
+				<li role="option" tabindex="0" aria-selected="false" onmousedown={() => selectName(name)}>
+					{name}
+				</li>
 			{/each}
 		</ul>
 	{/if}
