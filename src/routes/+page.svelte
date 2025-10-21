@@ -5,24 +5,31 @@
 
 	let { data } = $props();
 	let recipes = data.recipes;
+	// const leatherItems = recipes.filter((element) => {
+	// 	if (element.name.includes('Boiled Leather')) {
+	// 		return element;
+	// 	}
+	// });
+	// console.log(leatherItems);
 
-	let recipeNames = recipes.map((element, i, array) => {
-		return array[i].name;
-	});
 	let recipeImages = recipes.map((element, i, array) => {
 		return array[i].iconPath;
 	});
+
+	let selectedRecipeProp = $state(null);
 </script>
 
 <main>
 	<!-- Search / Item Select -->
-	<SearchItem {recipeNames} />
+	<SearchItem {recipes} bind:selectedRecipeProp />
 
 	<!-- Recipe Display -->
-	<Recipe {recipeImages} />
+	{#if selectedRecipeProp}
+		<Recipe {selectedRecipeProp} />
+		<AttributesEffects {selectedRecipeProp} />
+	{/if}
 
 	<!-- Attributes / Effects -->
-	<AttributesEffects />
 </main>
 
 <style>

@@ -1,7 +1,7 @@
 <script>
-	let { recipeImages } = $props();
+	let { selectedRecipeProp } = $props();
+	$effect(() => console.log($inspect(selectedRecipeProp)));
 	const formattedImages = recipeImages.map((url) => url.replace('{height}', 256));
-
 	let recipeImageRefined = `https://gtcdn.info/paxdei/${formattedImages[190]}`;
 </script>
 

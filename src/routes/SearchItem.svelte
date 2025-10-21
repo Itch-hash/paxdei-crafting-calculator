@@ -1,21 +1,51 @@
 <script>
-	let { recipeNames } = $props();
+	let { recipes, selectedRecipeProp = $bindable(null) } = $props();
 	let searchTerm = $state('');
 	let isFocused = $state(false);
+	const recipeNames = recipes.map((element, i, array) => {
+		return array[i].name;
+	});
+	const recipeIDs = recipes.map((element, i, array) => {
+		return array[i].id;
+	});
 
-	let filteredNames = $derived(
+	const filteredSearchTerm = $derived(searchTerm.replace('(Alternative)', '').trim());
+	const filteredRecipe = $derived(
+		recipes.filter((element, i, array) => {
+			if (array[i].name == filteredSearchTerm) {
+				return element;
+			}
+		})
+	);
+	const selectedRecipe = $derived(
+		filteredRecipe.find((element, i, array) => {
+			if (array[i + 1] == null) {
+				return element;
+			} else {
+				if (array[i].name == array[i + 1].name && !searchTerm.includes('Alternative')) {
+					return array[i];
+				}
+			}
+		})
+	);
+
+	const filteredNames = $derived(
 		recipeNames.filter((element) => {
-			if (isFocused || !searchTerm == '') {
+			if (isFocused || searchTerm !== '') {
 				return element.toLowerCase().includes(searchTerm.toLowerCase());
 			}
 		})
 	);
 
-	function selectName(name) {
-		searchTerm = name;
+	function selectName(name, isAlternative = false) {
+		if (!isAlternative) {
+			searchTerm = name;
+			selectedRecipeProp = selectedRecipe;
+		} else {
+			searchTerm = `${name} (Alternative)`;
+			selectedRecipeProp = selectedRecipe;
+		}
 	}
-
-	$effect(() => console.log());
 </script>
 
 <section class="search-section">
@@ -30,10 +60,30 @@
 	/>
 	{#if isFocused && searchTerm !== '' && filteredNames.length > 0}
 		<ul class="results-list" role="listbox">
-			{#each filteredNames as name}
-				<li role="option" tabindex="0" aria-selected="false" onmousedown={() => selectName(name)}>
-					{name}
-				</li>
+			{#each filteredNames as name, i}
+				{#if i > 0 && filteredNames[i] === filteredNames[i - 1]}
+					<li
+						role="option"
+						tabindex="0"
+						aria-selected="false"
+						onmousedown={() => {
+							selectName(name, true);
+						}}
+					>
+						{name} (Alternative)
+					</li>
+				{:else}
+					<li
+						role="option"
+						tabindex="0"
+						aria-selected="false"
+						onmousedown={() => {
+							selectName(name, false);
+						}}
+					>
+						{name}
+					</li>
+				{/if}
 			{/each}
 		</ul>
 	{/if}
