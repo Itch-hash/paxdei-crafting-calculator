@@ -1,6 +1,5 @@
 <script>
 	let { selectedRecipeProp } = $props();
-	$effect(() => console.log($inspect(selectedRecipeProp)));
 </script>
 
 {#if selectedRecipeProp}
