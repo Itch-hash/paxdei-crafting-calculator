@@ -2,7 +2,7 @@
 /** @type {import('./$types').PageLoad} */
 
 export async function load({ fetch }) {
-	const res = await fetch('./recipe.json');
+	const res = await fetch('/recipe.json');
 	const recipes = await res.json();
 	return { recipes };
 }
