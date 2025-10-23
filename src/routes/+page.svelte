@@ -2,6 +2,7 @@
 	import AttributesEffects from './AttributesEffects.svelte';
 	import Recipe from './Recipe.svelte';
 	import SearchItem from './SearchItem.svelte';
+	import Standby from './Standby.svelte';
 
 	let { data } = $props();
 	let recipes = data.recipes;
@@ -20,16 +21,14 @@
 </script>
 
 <main>
-	<!-- Search / Item Select -->
 	<SearchItem {recipes} bind:selectedRecipeProp />
 
-	<!-- Recipe Display -->
-	{#if selectedRecipeProp}
+	{#if !selectedRecipeProp}
+		<Standby />
+	{:else}
 		<Recipe {selectedRecipeProp} />
 		<AttributesEffects {selectedRecipeProp} />
 	{/if}
-
-	<!-- Attributes / Effects -->
 </main>
 
 <style>

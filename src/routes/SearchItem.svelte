@@ -51,6 +51,7 @@
 <section class="search-section">
 	<label for="itemSearch">Choose Item:</label>
 	<input
+		autocomplete="off"
 		type="text"
 		id="itemSearch"
 		placeholder="Search for an item..."
@@ -87,18 +88,26 @@
 			{/each}
 		</ul>
 	{/if}
+
+	<label class="itemCount" for="itemCount">Count:</label>
+	<input type="number" id="itemCount" class="count-input" min="1" value="1" />
 </section>
 
 <style>
 	.search-section {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
 		position: relative;
 		background: #262a33;
 		padding: 15px;
 		border-radius: 8px;
 		margin-bottom: 20px;
 		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		font-family:
+			-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 	}
-
 	.search-section label {
 		font-weight: bold;
 		margin-right: 10px;
@@ -108,49 +117,53 @@
 		padding: 8px;
 		border: 1px solid #ddd;
 		border-radius: 6px;
-		width: 250px;
+		max-width: 250px;
 		margin-right: 10px;
 	}
-
 	.results-list {
-		/* --- The Positioning Magic --- */
 		position: absolute;
-		width: 60%; /* Make it span the full width of the parent */
-		top: 100%; /* Start it right below the parent */
-		left: 75px;
-		z-index: 10; /* Make sure it floats on top of other content */
-
-		/* --- Styling (to match your theme) --- */
-		background: #3a3f4c; /* A slightly lighter dark for the dropdown */
-		border: 1px solid #32325a; /* Use your button color */
-		border-top: none; /* Looks cleaner, as if attached */
-		border-radius: 0 0 8px 8px; /* Match your parent's rounded corners */
+		top: 100%;
+		z-index: 10;
+		background: #3a3f4c;
+		border: 1px solid #32325a;
+		border-top: none;
+		border-radius: 0 0 8px 8px;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-
 		list-style: none;
 		padding: 0;
 		margin: 0;
-
 		max-height: 150px;
 		overflow-y: auto;
-
 		scrollbar-width: thin;
 	}
-
 	.results-list li {
 		padding: 10px 15px;
 		color: #fff;
 		cursor: pointer;
-		border-bottom: 1px solid #262a33; /* Use your bg color for a subtle separator */
+		border-bottom: 1px solid #262a33;
 	}
 
-	/* On the last item, remove the bottom border */
 	.results-list li:last-child {
 		border-bottom: none;
 	}
 
-	/* Hover effect */
 	.results-list li:hover {
-		background: #4a4a88; /* Use your button color for hover */
+		background: #4a4a88;
+	}
+	.count-input {
+		padding: 8px;
+		border: 1px solid #ddd;
+		border-radius: 6px;
+		width: 70px;
+		margin-right: 10px;
+
+		background: #fff;
+		color: #333;
+		text-align: center;
+	}
+
+	.itemCount {
+		font-weight: bold;
+		margin-right: 10px;
 	}
 </style>
