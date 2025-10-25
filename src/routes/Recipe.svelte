@@ -1,8 +1,5 @@
 <script>
 	let { selectedRecipeProp, itemCount } = $props();
-	$effect(() => {
-		console.log($inspect(selectedRecipeProp));
-	});
 </script>
 
 {#if selectedRecipeProp}
@@ -34,9 +31,19 @@
 							class="ingredient-icon"
 						/>
 						<div class="info">
-							<h4>{ingredient.entity.name} (x{ingredient.count * itemCount})</h4>
+							<div class="info-title">
+								<img
+									class="ingredient-tier-icon"
+									src={'https://gtcdn.info/paxdei/' +
+										ingredient.entity.tierIconPath.replace('{height}', 64)}
+									alt={ingredient.entity.name}
+								/>
+								<h4>{ingredient.entity.name} (x{ingredient.count * itemCount})</h4>
+							</div>
+
 							<p>
 								<span>Tier: {ingredient.entity.tier}</span>
+
 								<span>Type: {ingredient.entity.entityTypeName}</span>
 							</p>
 						</div>
@@ -84,7 +91,11 @@
 		background: #3a3f4c;
 		flex-shrink: 0;
 	}
-
+	.info-title {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
 	.header-info h2 {
 		margin: 0 0 5px 0;
 		color: #fff;
@@ -127,6 +138,14 @@
 	.ingredient-icon {
 		width: 40px;
 		height: 40px;
+		border-radius: 4px;
+		margin-right: 10px;
+		background: #262a33;
+		flex-shrink: 0;
+	}
+	.ingredient-tier-icon {
+		width: 20px;
+		height: 20px;
 		border-radius: 4px;
 		margin-right: 10px;
 		background: #262a33;
