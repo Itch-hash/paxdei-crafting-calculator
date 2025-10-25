@@ -15,6 +15,12 @@
 				<p>
 					<span>Tier: {selectedRecipeProp.tier}</span>
 					<span>Type: {selectedRecipeProp.outputs[0].entity.entityTypeName}</span>
+					{#if selectedRecipeProp.quality}
+						<span
+							>Quality: {selectedRecipeProp.quality.charAt(0).toUpperCase() +
+								selectedRecipeProp.quality.slice(1)}</span
+						>
+					{/if}
 				</p>
 			</div>
 		</header>
@@ -58,7 +64,15 @@
 				<p><span>Skill:</span> <span>{selectedRecipeProp.skillRequired.name}</span></p>
 				<p><span>Skill Difficulty:</span> <span>{selectedRecipeProp.skillDifficulty}</span></p>
 				<p><span>Skill Cap:</span> <span>{selectedRecipeProp.skillRequired.skillLevelCap}</span></p>
-				<p><span>Base XP:</span> <span>{selectedRecipeProp.skillRequired.skillBaseXp}</span></p>
+				<p>
+					<span>Minimum Skill to Unlock:</span>
+					<span
+						>{#if selectedRecipeProp.unlockAtSkillLevel}
+							{selectedRecipeProp.unlockAtSkillLevel}
+						{:else}0
+						{/if}</span
+					>
+				</p>
 				<p><span>XP Multiplier:</span> <span>{selectedRecipeProp.xpMultiplier}</span></p>
 			</div>
 		</div>
@@ -107,7 +121,7 @@
 		color: #ccc;
 	}
 
-	.header-info p span:first-child {
+	.header-info p span {
 		margin-right: 15px;
 	}
 
