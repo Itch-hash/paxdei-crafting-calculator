@@ -1,5 +1,8 @@
 <script>
 	let { selectedRecipeProp, itemCount } = $props();
+	$effect(() => {
+		console.log($inspect(selectedRecipeProp));
+	});
 </script>
 
 {#if selectedRecipeProp}
@@ -14,7 +17,7 @@
 				<h2>{selectedRecipeProp.name}</h2>
 				<p>
 					<span>Tier: {selectedRecipeProp.tier}</span>
-					<span>Type: {selectedRecipeProp.entityTypeName}</span>
+					<span>Type: {selectedRecipeProp.outputs[0].entity.entityTypeName}</span>
 				</p>
 			</div>
 		</header>

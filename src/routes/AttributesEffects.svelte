@@ -1,8 +1,10 @@
+<script>
+	let { selectedRecipeProp } = $props();
+</script>
+
 <section class="effects-section">
 	<h2>Item Effects</h2>
-	<ul id="effectsList">
-		<!-- Effects go here -->
-	</ul>
+	<ul id="effectsList"></ul>
 </section>
 
 <style>
