@@ -1,5 +1,5 @@
 <script>
-	let { selectedRecipeProp } = $props();
+	let { selectedRecipeProp, itemCount } = $props();
 </script>
 
 {#if selectedRecipeProp}
@@ -31,7 +31,7 @@
 							class="ingredient-icon"
 						/>
 						<div class="info">
-							<h4>{ingredient.entity.name} (x{ingredient.count})</h4>
+							<h4>{ingredient.entity.name} (x{ingredient.count * itemCount})</h4>
 							<p>
 								<span>Tier: {ingredient.entity.tier}</span>
 								<span>Type: {ingredient.entity.entityTypeName}</span>

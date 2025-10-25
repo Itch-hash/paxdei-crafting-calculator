@@ -18,15 +18,16 @@
 	});
 
 	let selectedRecipeProp = $state(null);
+	let itemCount = $state(1);
 </script>
 
 <main>
-	<SearchItem {recipes} bind:selectedRecipeProp />
+	<SearchItem {recipes} bind:selectedRecipeProp bind:itemCount />
 
 	{#if !selectedRecipeProp}
 		<Standby />
 	{:else}
-		<Recipe {selectedRecipeProp} />
+		<Recipe {selectedRecipeProp} {itemCount} />
 		<AttributesEffects {selectedRecipeProp} />
 	{/if}
 </main>

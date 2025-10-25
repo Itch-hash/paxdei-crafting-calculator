@@ -1,5 +1,5 @@
 <script>
-	let { recipes, selectedRecipeProp = $bindable(null) } = $props();
+	let { recipes, selectedRecipeProp = $bindable(null), itemCount = $bindable(1) } = $props();
 	let searchTerm = $state('');
 	let isFocused = $state(false);
 	const recipeNames = recipes.map((element, i, array) => {
@@ -80,6 +80,7 @@
 						aria-selected="false"
 						onmousedown={() => {
 							selectName(name, false);
+							itemCount = 1;
 						}}
 					>
 						{name}
@@ -90,7 +91,7 @@
 	{/if}
 
 	<label class="itemCount" for="itemCount">Count:</label>
-	<input type="number" id="itemCount" class="count-input" min="1" value="1" />
+	<input type="number" id="itemCount" class="count-input" min="1" bind:value={itemCount} />
 </section>
 
 <style>
