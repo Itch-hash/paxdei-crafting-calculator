@@ -3,6 +3,21 @@
 	import favicon from '$lib/assets/favicon.svg';
 
 	let { children } = $props();
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		// Add global config first
+		window.gtTooltipConfig = {
+			scale: 0.8,
+			delay: 50
+		};
+
+		// Dynamically load the Pax Dei embed script
+		const script = document.createElement('script');
+		script.src = 'https://paxdei.gaming.tools/embed.js';
+		script.async = true;
+		document.body.appendChild(script);
+	});
 </script>
 
 <svelte:head>

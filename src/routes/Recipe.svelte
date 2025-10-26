@@ -11,9 +11,14 @@
 				class="main-icon"
 			/>
 			<div class="header-info">
-				<h2>{selectedRecipeProp.name}</h2>
+				<a
+					href="https://paxdei.gaming.tools/{selectedRecipeProp.outputs[0].entity
+						.listingPath}/{selectedRecipeProp.outputs[0].entity.id}"
+					target="_blank"><h2>{selectedRecipeProp.name}</h2></a
+				>
 				<p>
-					<span>Tier: {selectedRecipeProp.tier}</span>
+					{#if selectedRecipeProp.tier}
+						<span>Tier: {selectedRecipeProp.tier}</span>{/if}
 					<span>Type: {selectedRecipeProp.outputs[0].entity.entityTypeName}</span>
 					{#if selectedRecipeProp.quality}
 						<span
@@ -44,7 +49,12 @@
 										ingredient.entity.tierIconPath.replace('{height}', 64)}
 									alt={ingredient.entity.name}
 								/>
-								<h4>{ingredient.entity.name} (x{ingredient.count * itemCount})</h4>
+								<a
+									href="https://paxdei.gaming.tools/{ingredient.entity.listingPath}/{ingredient
+										.entity.id}"
+									target="_blank"
+									><h4>{ingredient.entity.name} (x{ingredient.count * itemCount})</h4></a
+								>
 							</div>
 
 							<p>
@@ -73,7 +83,11 @@
 						{/if}</span
 					>
 				</p>
-				<p><span>XP Multiplier:</span> <span>{selectedRecipeProp.xpMultiplier}</span></p>
+
+				<p>
+					{#if selectedRecipeProp.xpMultiplier}<span>XP Multiplier:</span>
+						<span>{selectedRecipeProp.xpMultiplier}</span>{/if}
+				</p>
 			</div>
 		</div>
 	</section>
@@ -110,9 +124,16 @@
 		align-items: center;
 		gap: 20px;
 	}
+	.info-title a {
+		text-decoration: none;
+		color: white;
+	}
 	.header-info h2 {
 		margin: 0 0 5px 0;
 		color: #fff;
+	}
+	.header-info a {
+		text-decoration: none;
 	}
 
 	.header-info p {
