@@ -29,45 +29,45 @@
 				</p>
 			</div>
 		</header>
+		{#if selectedRecipeProp.itemIngredients.length > 0}
+			<div class="ingredients-section">
+				<h3>Ingredients</h3>
+				<ul class="ingredients-list">
+					{#each selectedRecipeProp.itemIngredients as ingredient}
+						<li class="ingredient-item">
+							<img
+								src={'https://gtcdn.info/paxdei/' +
+									ingredient.entity.iconPath.replace('{height}', 64)}
+								alt={ingredient.entity.name}
+								class="ingredient-icon"
+							/>
+							<div class="info">
+								<div class="info-title">
+									<img
+										class="ingredient-tier-icon"
+										src={'https://gtcdn.info/paxdei/' +
+											ingredient.entity.tierIconPath.replace('{height}', 64)}
+										alt={ingredient.entity.name}
+									/>
+									<a
+										href="https://paxdei.gaming.tools/{ingredient.entity.listingPath}/{ingredient
+											.entity.id}"
+										target="_blank"
+										><h4>{ingredient.entity.name} (x{ingredient.count * itemCount})</h4></a
+									>
+								</div>
 
-		<div class="ingredients-section">
-			<h3>Ingredients</h3>
-			<ul class="ingredients-list">
-				{#each selectedRecipeProp.itemIngredients as ingredient}
-					<li class="ingredient-item">
-						<img
-							src={'https://gtcdn.info/paxdei/' +
-								ingredient.entity.iconPath.replace('{height}', 64)}
-							alt={ingredient.entity.name}
-							class="ingredient-icon"
-						/>
-						<div class="info">
-							<div class="info-title">
-								<img
-									class="ingredient-tier-icon"
-									src={'https://gtcdn.info/paxdei/' +
-										ingredient.entity.tierIconPath.replace('{height}', 64)}
-									alt={ingredient.entity.name}
-								/>
-								<a
-									href="https://paxdei.gaming.tools/{ingredient.entity.listingPath}/{ingredient
-										.entity.id}"
-									target="_blank"
-									><h4>{ingredient.entity.name} (x{ingredient.count * itemCount})</h4></a
-								>
+								<p>
+									<span>Tier: {ingredient.entity.tier}</span>
+
+									<span>Type: {ingredient.entity.entityTypeName}</span>
+								</p>
 							</div>
-
-							<p>
-								<span>Tier: {ingredient.entity.tier}</span>
-
-								<span>Type: {ingredient.entity.entityTypeName}</span>
-							</p>
-						</div>
-					</li>
-				{/each}
-			</ul>
-		</div>
-
+						</li>
+					{/each}
+				</ul>
+			</div>
+		{/if}
 		<div class="skill-section">
 			<h3>Required Skill</h3>
 			<div class="skill-info">

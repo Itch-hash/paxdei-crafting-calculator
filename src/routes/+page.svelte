@@ -1,5 +1,5 @@
 <script>
-	import AttributesEffects from './AttributesEffects.svelte';
+	import IngredientsFor from './IngredientsFor.svelte';
 	import Recipe from './Recipe.svelte';
 	import SearchItem from './SearchItem.svelte';
 	import Standby from './Standby.svelte';
@@ -23,7 +23,7 @@
 		<Standby />
 	{:else}
 		<Recipe {selectedRecipeProp} {itemCount} />
-		<AttributesEffects {selectedRecipeProp} />
+		<IngredientsFor {selectedRecipeProp} {recipes} />
 	{/if}
 </main>
 

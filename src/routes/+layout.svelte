@@ -24,7 +24,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 <header>
-	<h1>Crafting Calculator</h1>
+	<h1>Pax Dei Crafting Calculator</h1>
 </header>
 
 {@render children?.()}
