@@ -2,7 +2,7 @@
 	import PlannerRecipe from '$lib/classes/PlannerRecipe';
 	let { itemCount, selectedRecipeProp, data, planner, recipes } = $props();
 	let isOpen = $state(false);
-	// $effect(() => $inspect(console.log($inspect(planner))));
+	$effect(() => $inspect(console.log($inspect(planner))));
 	function addItem() {}
 
 	function toggleSidebar() {
@@ -12,11 +12,16 @@
 		const index = planner.findIndex((i) => i.id === item.id);
 		planner.splice(index, 1);
 	}
-	function updateCount(item, newValue) {
-		const index = planner.findIndex((i) => i.id === item.id);
-		const updated = new PlannerRecipe(selectedRecipeProp, newValue, recipes);
-		planner[index] = updated;
-	}
+	// function updateCount(item, newValue) {
+	// 	const index = planner.findIndex((i) => i.id === item.id);
+	// 	for (let ingredient of item.ingredients) {
+	// 		let initialCount = ingredient.totalAmount * newValue;
+	// 		ingredient.totalAmount = initialCount;
+	// 		console.log(ingredient.totalAmount);
+	// 	}
+	// 	// const updated = new PlannerRecipe(newValue, recipes);
+	// 	// planner[index] = updated;
+	// }
 </script>
 
 <!-- Sidebar Toggle Button -->
@@ -38,7 +43,7 @@
 								src={'https://gtcdn.info/paxdei/' + item.iconPath.replace('{height}', 64)}
 								alt={item.name}
 							/>
-							<span class="recipe-name">{item.name}</span>
+							<span class="recipe-name">{item.name} (x{item.output})</span>
 							<input
 								type="number"
 								id="itemCount"
@@ -46,6 +51,7 @@
 								min="1"
 								value={item.count}
 								onchange={() => updateCount(item, event.target.value)}
+								disabled
 							/>
 							<button class="tree-btn" onclick={() => removeItem(item)}>×</button>
 						</div>
@@ -71,7 +77,7 @@
 													alt={subIngredient1.name}
 												/>
 												<span class="sub-ingredient"
-													>{subIngredient1.name}(x{subIngredient1.totalAmount})</span
+													>{subIngredient1.name}(x{subIngredient1.totalAmount.toFixed(1)})</span
 												>
 											</div>
 										</li>
@@ -87,7 +93,7 @@
 														alt={subIngredient2.name}
 													/>
 													<span style:color="#CE93D8" class="sub-ingredient"
-														>{subIngredient2.name}(x{subIngredient2.totalAmount})</span
+														>{subIngredient2.name}(x{subIngredient2.totalAmount.toFixed(1)})</span
 													>
 												</div>
 											</li>
@@ -102,7 +108,7 @@
 															alt={subIngredient3.name}
 														/>
 														<span style:color="#BCAAA4" class="sub-ingredient"
-															>{subIngredient3.name}(x{subIngredient3.totalAmount})</span
+															>{subIngredient3.name}(x{subIngredient3.totalAmount.toFixed(1)})</span
 														>
 													</div>
 												</li>
@@ -117,7 +123,9 @@
 																alt={subIngredient4.name}
 															/>
 															<span style:color="#E0E0E0" class="sub-ingredient"
-																>{subIngredient4.name}(x{subIngredient4.totalAmount})</span
+																>{subIngredient4.name}(x{subIngredient4.totalAmount.toFixed(
+																	1
+																)})</span
 															>
 														</div>
 													</li>

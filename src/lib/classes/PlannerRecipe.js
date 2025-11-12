@@ -4,6 +4,7 @@ export default class PlannerRecipe {
 		this.name = recipeData.name;
 		this.iconPath = recipeData.iconPath;
 		this.count = count;
+		this.output = recipeData.outputs[0].count * this.count;
 		this.id = recipeData.id;
 		this.ingredients = this.buildIngredientItems(recipeData.itemIngredients, allRecipes);
 	}
@@ -13,16 +14,17 @@ export default class PlannerRecipe {
 		for (let ingredient of ingredients) {
 			let baseAmount = ingredient.count;
 			let totalAmount = baseAmount * multiplier;
+
 			let found = false;
 
 			for (let recipe of allRecipes) {
 				if (ingredient.entity.id === recipe.outputs[0].entity.id) {
 					found = true;
-
+					let craftsNeeded = totalAmount / recipe.outputs[0].count;
 					const subIngredients = this.buildIngredientItems(
 						recipe.itemIngredients,
 						allRecipes,
-						totalAmount
+						craftsNeeded
 					);
 
 					result.push({
@@ -30,7 +32,8 @@ export default class PlannerRecipe {
 						name: ingredient.entity.name,
 						iconPath: ingredient.entity.iconPath,
 						totalAmount,
-						subIngredients
+						subIngredients,
+						output: recipe.outputs[0].count * craftsNeeded
 					});
 
 					break; // stop searching other recipes once a match is found
@@ -48,7 +51,6 @@ export default class PlannerRecipe {
 				});
 			}
 		}
-
 		return result;
 	}
 }

@@ -1,6 +1,9 @@
 <script>
 	let { selectedRecipeProp, itemCount, planner, recipes } = $props();
 	import PlannerRecipe from '$lib/classes/PlannerRecipe';
+	// $effect(() => {
+	// 	console.log(selectedRecipeProp);
+	// });
 </script>
 
 {#if selectedRecipeProp}
@@ -15,7 +18,10 @@
 				<a
 					href="https://paxdei.gaming.tools/{selectedRecipeProp.outputs[0].entity
 						.listingPath}/{selectedRecipeProp.outputs[0].entity.id}"
-					target="_blank"><h2>{selectedRecipeProp.name}</h2></a
+					target="_blank"
+					><h2>
+						{selectedRecipeProp.name} (x{selectedRecipeProp.outputs[0].count * itemCount})
+					</h2></a
 				>
 				<p>
 					{#if selectedRecipeProp.tier}
