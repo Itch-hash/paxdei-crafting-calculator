@@ -2,7 +2,7 @@
 	import PlannerRecipe from '$lib/classes/PlannerRecipe';
 	let { itemCount, selectedRecipeProp, data, planner, recipes } = $props();
 	let isOpen = $state(false);
-	$effect(() => $inspect(console.log($inspect(planner))));
+	// $effect(() => $inspect(console.log($inspect(planner))));
 	function addItem() {}
 
 	function toggleSidebar() {
