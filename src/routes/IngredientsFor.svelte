@@ -14,12 +14,12 @@
 		relatedRecipes = results;
 	});
 
-	$effect(() => console.log(relatedRecipes));
+	// $effect(() => console.log(relatedRecipes));
 </script>
 
 {#if !relatedRecipes.length == 0}
 	<section class="ingredient-for-section">
-		<h2>Used as an Ingredient For {relatedRecipes.length} Recipes</h2>
+		<h2>Used Also As An Ingredient For {relatedRecipes.length} Recipes</h2>
 		<ul id="ingredient-for-list"></ul>
 
 		<div class="ingredient-for-info">

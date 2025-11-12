@@ -1,5 +1,6 @@
 <script>
-	let { selectedRecipeProp, itemCount } = $props();
+	let { selectedRecipeProp, itemCount, planner, recipes } = $props();
+	import PlannerRecipe from '$lib/classes/PlannerRecipe';
 </script>
 
 {#if selectedRecipeProp}
@@ -28,6 +29,13 @@
 					{/if}
 				</p>
 			</div>
+			{#if selectedRecipeProp.itemIngredients.length > 0}
+				<button
+					class="add-to-planner"
+					onclick={() => planner.push(new PlannerRecipe(selectedRecipeProp, itemCount, recipes))}
+					>Add to Planner</button
+				>
+			{/if}
 		</header>
 		{#if selectedRecipeProp.itemIngredients.length > 0}
 			<div class="ingredients-section">
@@ -109,6 +117,7 @@
 		padding-bottom: 15px;
 		border-bottom: 1px solid #3a3f4c;
 		margin-bottom: 15px;
+		position: relative;
 	}
 
 	.main-icon {
@@ -230,5 +239,38 @@
 	}
 	.skill-info p span:last-child {
 		font-weight: bold;
+	}
+	.add-to-planner {
+		position: absolute;
+		right: 0;
+		padding: 0.6rem 1rem;
+		border: none;
+		border-radius: 0.75rem;
+		background-color: #262a33;
+		color: #f5f5f5;
+		font-weight: 500;
+		cursor: pointer;
+		transition:
+			transform 0.15s ease,
+			background-color 0.2s ease,
+			box-shadow 0.2s ease;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+	}
+
+	.add-to-planner:hover {
+		transform: scale(1.04);
+		background-color: #3a3f4c;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+	}
+
+	.add-to-planner:active {
+		transform: scale(0.98);
+		background-color: hsl(222, 13%, 19%);
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+	}
+
+	.add-to-planner:focus-visible {
+		outline: 2px solid #6666aa;
+		outline-offset: 3px;
 	}
 </style>

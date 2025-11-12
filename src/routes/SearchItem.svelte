@@ -116,10 +116,12 @@
 
 	.search-section input {
 		padding: 8px;
-		border: 1px solid #ddd;
+		border: 1px solid #797979;
+		color: white;
 		border-radius: 6px;
 		max-width: 250px;
 		margin-right: 10px;
+		background-color: #262a33;
 	}
 	.results-list {
 		position: absolute;
@@ -153,18 +155,22 @@
 	}
 	.count-input {
 		padding: 8px;
-		border: 1px solid #ddd;
+		border: 1px solid #797979;
 		border-radius: 6px;
 		width: 70px;
 		margin-right: 10px;
-
+		color: white;
 		background: #fff;
-		color: #333;
+
+		background-color: #262a33;
 		text-align: center;
 	}
 
 	.itemCount {
 		font-weight: bold;
 		margin-right: 10px;
+	}
+	input[type='number'] {
+		color-scheme: dark;
 	}
 </style>
