@@ -1,8 +1,9 @@
 <script>
 	import PlannerRecipe from '$lib/classes/PlannerRecipe';
+	import TreeNode from './TreeNode.svelte';
 	let { itemCount, selectedRecipeProp, data, planner, recipes } = $props();
 	let isOpen = $state(false);
-	$effect(() => $inspect(console.log($inspect(planner))));
+	// $effect(() => $inspect(console.log($inspect(planner))));
 	function addItem() {}
 
 	function toggleSidebar() {
@@ -12,16 +13,16 @@
 		const index = planner.findIndex((i) => i.id === item.id);
 		planner.splice(index, 1);
 	}
-	// function updateCount(item, newValue) {
-	// 	const index = planner.findIndex((i) => i.id === item.id);
-	// 	for (let ingredient of item.ingredients) {
-	// 		let initialCount = ingredient.totalAmount * newValue;
-	// 		ingredient.totalAmount = initialCount;
-	// 		console.log(ingredient.totalAmount);
-	// 	}
-	// 	// const updated = new PlannerRecipe(newValue, recipes);
-	// 	// planner[index] = updated;
-	// }
+	function updateCount(item, newValue) {
+		const index = planner.findIndex((i) => i.id === item.id);
+		for (let ingredient of item.ingredients) {
+			let initialCount = ingredient.totalAmount * newValue;
+			ingredient.totalAmount = initialCount;
+			console.log(ingredient.totalAmount);
+		}
+		// const updated = new PlannerRecipe(newValue, recipes);
+		// planner[index] = updated;
+	}
 </script>
 
 <!-- Sidebar Toggle Button -->
@@ -57,83 +58,7 @@
 						</div>
 						<ul>
 							{#each item.ingredients as ingredient}
-								<li>
-									<div class="tree-item">
-										<img
-											src={'https://gtcdn.info/paxdei/' +
-												ingredient.iconPath.replace('{height}', 64)}
-											alt={ingredient.name}
-										/>
-										<span class="ingredient">{ingredient.name} (x{ingredient.totalAmount})</span>
-									</div>
-								</li>
-								{#each ingredient.subIngredients as subIngredient1}
-									<ul>
-										<li>
-											<div class="tree-item">
-												<img
-													src={'https://gtcdn.info/paxdei/' +
-														subIngredient1.iconPath.replace('{height}', 64)}
-													alt={subIngredient1.name}
-												/>
-												<span class="sub-ingredient"
-													>{subIngredient1.name}(x{subIngredient1.totalAmount.toFixed(1)})</span
-												>
-											</div>
-										</li>
-									</ul>
-
-									{#each subIngredient1.subIngredients as subIngredient2}
-										<ul style:padding-left="3.5rem">
-											<li>
-												<div class="tree-item">
-													<img
-														src={'https://gtcdn.info/paxdei/' +
-															subIngredient2.iconPath.replace('{height}', 64)}
-														alt={subIngredient2.name}
-													/>
-													<span style:color="#CE93D8" class="sub-ingredient"
-														>{subIngredient2.name}(x{subIngredient2.totalAmount.toFixed(1)})</span
-													>
-												</div>
-											</li>
-										</ul>
-										{#each subIngredient2.subIngredients as subIngredient3}
-											<ul style:padding-left="4.5rem">
-												<li>
-													<div class="tree-item">
-														<img
-															src={'https://gtcdn.info/paxdei/' +
-																subIngredient3.iconPath.replace('{height}', 64)}
-															alt={subIngredient3.name}
-														/>
-														<span style:color="#BCAAA4" class="sub-ingredient"
-															>{subIngredient3.name}(x{subIngredient3.totalAmount.toFixed(1)})</span
-														>
-													</div>
-												</li>
-											</ul>
-											{#each subIngredient3.subIngredients as subIngredient4}
-												<ul style:padding-left="6.5rem">
-													<li>
-														<div class="tree-item">
-															<img
-																src={'https://gtcdn.info/paxdei/' +
-																	subIngredient4.iconPath.replace('{height}', 64)}
-																alt={subIngredient4.name}
-															/>
-															<span style:color="#E0E0E0" class="sub-ingredient"
-																>{subIngredient4.name}(x{subIngredient4.totalAmount.toFixed(
-																	1
-																)})</span
-															>
-														</div>
-													</li>
-												</ul>
-											{/each}
-										{/each}
-									{/each}
-								{/each}
+								<TreeNode node={ingredient} depth={1} />
 							{/each}
 						</ul>
 					</li>
@@ -259,12 +184,6 @@
 	.recipe-name {
 		font-weight: bold;
 		color: #ffa726;
-	}
-	.ingredient {
-		color: #90caf9;
-	}
-	.sub-ingredient {
-		color: #a5d6a7;
 	}
 
 	/* === Scrollbar Styling === */
