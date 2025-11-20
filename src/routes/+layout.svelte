@@ -1,6 +1,6 @@
 <script>
 	/** @type {import('./$types').LayoutProps} */
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.png';
 
 	let { children } = $props();
 	import { onMount } from 'svelte';
@@ -28,7 +28,8 @@
 {@render children?.()}
 
 <footer>
-	<p>Crafting Calculator &copy; 2025</p>
+	<p>Pax Dei Crafting Calculator &copy; 2025</p>
+	<p>Made with ❤️ by notsoitchy</p>
 </footer>
 
 <style>
