@@ -31,7 +31,7 @@
 	<p>Pax Dei Crafting Calculator &copy; 2025</p>
 	<p>Made with ❤️ by notsoitchy</p>
 	<p>
-		Buy me a cup of coffee ☕ to support me <a
+		You can support me by buying me a cup of coffee ☕ <a
 			href="https://buymeacoffee.com/heshamfekry"
 			target="_blank"
 			rel="noopener noreferrer">here</a

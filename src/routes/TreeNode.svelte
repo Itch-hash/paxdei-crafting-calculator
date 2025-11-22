@@ -24,7 +24,9 @@
 			src={'https://gtcdn.info/paxdei/' + node.iconPath.replace('{height}', 64)}
 			alt={node.name}
 		/>
-		<span style="color:{color}" class="ingredient">{node.name} (x{node.totalAmount})</span>
+		<span style="color:{color}" class="ingredient"
+			>{node.name} (x{node.totalAmount.toFixed(1)})</span
+		>
 	</div>
 	{#if node.subIngredients.length}
 		{#each node.subIngredients as child}

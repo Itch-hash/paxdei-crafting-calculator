@@ -1,9 +1,16 @@
 <script>
-	let { selectedRecipeProp, itemCount, planner, recipes } = $props();
+	let { selectedRecipeProp, itemCount, planner, recipes, updateCount } = $props();
 	import PlannerRecipe from '$lib/classes/PlannerRecipe';
-	// $effect(() => {
-	// 	console.log(selectedRecipeProp);
-	// });
+	function addToPlanner() {
+		const isFound = planner.find((r) => r.id === selectedRecipeProp.id);
+
+		if (isFound) {
+			const foundRecipe = recipes.find((r, i, arr) => arr[i].id === isFound.id);
+			updateCount(foundRecipe, itemCount);
+		} else {
+			planner.push(new PlannerRecipe(selectedRecipeProp, itemCount, recipes));
+		}
+	}
 </script>
 
 {#if selectedRecipeProp}
@@ -36,11 +43,7 @@
 				</p>
 			</div>
 			{#if selectedRecipeProp.itemIngredients.length > 0}
-				<button
-					class="add-to-planner"
-					onclick={() => planner.push(new PlannerRecipe(selectedRecipeProp, itemCount, recipes))}
-					>Add to Planner</button
-				>
+				<button class="add-to-planner" onclick={() => addToPlanner()}>Add to Planner</button>
 			{/if}
 		</header>
 		{#if selectedRecipeProp.itemIngredients.length > 0}

@@ -1,10 +1,9 @@
 <script>
 	import PlannerRecipe from '$lib/classes/PlannerRecipe';
 	import TreeNode from './TreeNode.svelte';
-	let { itemCount, selectedRecipeProp, data, planner, recipes } = $props();
+	let { itemCount, selectedRecipeProp, data, planner, recipes, updateCount } = $props();
 	let isOpen = $state(false);
 	// $effect(() => $inspect(console.log($inspect(planner))));
-	function addItem() {}
 
 	function toggleSidebar() {
 		isOpen = !isOpen;
@@ -12,16 +11,6 @@
 	function removeItem(item) {
 		const index = planner.findIndex((i) => i.id === item.id);
 		planner.splice(index, 1);
-	}
-	function updateCount(item, newValue) {
-		const index = planner.findIndex((i) => i.id === item.id);
-		for (let ingredient of item.ingredients) {
-			let initialCount = ingredient.totalAmount * newValue;
-			ingredient.totalAmount = initialCount;
-			console.log(ingredient.totalAmount);
-		}
-		// const updated = new PlannerRecipe(newValue, recipes);
-		// planner[index] = updated;
 	}
 </script>
 
@@ -52,7 +41,6 @@
 								min="1"
 								value={item.count}
 								onchange={() => updateCount(item, event.target.value)}
-								disabled
 							/>
 							<button class="tree-btn" onclick={() => removeItem(item)}>×</button>
 						</div>
@@ -66,7 +54,7 @@
 			{/each}
 		</div>
 	{:else}
-		<p class="no-planner-items">There is no item in the Planner</p>
+		<p class="no-planner-items">Add Items to Planner to show them here</p>
 	{/if}
 </aside>
 
