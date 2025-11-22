@@ -15,7 +15,13 @@
 </script>
 
 <!-- Sidebar Toggle Button -->
-<button class="sidebar-toggle" onclick={toggleSidebar}> ☰ Crafting Tree </button>
+<button class="sidebar-toggle" onclick={toggleSidebar}>
+	☰ Crafting Tree {#if planner}
+		{#each planner as item, i}
+			<span class="planner-count">{i + 1}</span>
+		{/each}
+	{/if}</button
+>
 
 <!-- Sidebar -->
 <aside class="sidebar {isOpen ? 'open' : ''}">
@@ -83,6 +89,16 @@
 	}
 	.sidebar-toggle:hover {
 		background: hsl(222, 15%, 50%);
+	}
+	.planner-count {
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: solid red 1px;
+		border-radius: 100%;
+		padding-right: 2px;
+		padding-left: 2px;
+		background-color: red;
 	}
 
 	/* === Sidebar Container === */

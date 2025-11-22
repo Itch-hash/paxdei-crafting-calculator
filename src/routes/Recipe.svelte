@@ -16,20 +16,20 @@
 {#if selectedRecipeProp}
 	<section class="recipe-card">
 		<header class="recipe-header">
-			<img
-				src={'https://gtcdn.info/paxdei/' + selectedRecipeProp.iconPath.replace('{height}', 64)}
-				alt={selectedRecipeProp.name}
-				class="main-icon"
-			/>
+			<a
+				href="https://paxdei.gaming.tools/{selectedRecipeProp.outputs[0].entity
+					.listingPath}/{selectedRecipeProp.outputs[0].entity.id}"
+				target="_blank"
+				><img
+					src={'https://gtcdn.info/paxdei/' + selectedRecipeProp.iconPath.replace('{height}', 64)}
+					alt={selectedRecipeProp.name}
+					class="main-icon"
+				/></a
+			>
 			<div class="header-info">
-				<a
-					href="https://paxdei.gaming.tools/{selectedRecipeProp.outputs[0].entity
-						.listingPath}/{selectedRecipeProp.outputs[0].entity.id}"
-					target="_blank"
-					><h2>
-						{selectedRecipeProp.name} (x{selectedRecipeProp.outputs[0].count * itemCount})
-					</h2></a
-				>
+				<h2>
+					{selectedRecipeProp.name} (x{selectedRecipeProp.outputs[0].count * itemCount})
+				</h2>
 				<p>
 					{#if selectedRecipeProp.tier}
 						<span>Tier: {selectedRecipeProp.tier}</span>{/if}
@@ -52,12 +52,18 @@
 				<ul class="ingredients-list">
 					{#each selectedRecipeProp.itemIngredients as ingredient}
 						<li class="ingredient-item">
-							<img
-								src={'https://gtcdn.info/paxdei/' +
-									ingredient.entity.iconPath.replace('{height}', 64)}
-								alt={ingredient.entity.name}
-								class="ingredient-icon"
-							/>
+							<a
+								href="https://paxdei.gaming.tools/{ingredient.entity.listingPath}/{ingredient.entity
+									.id}"
+								target="_blank"
+								rel="noopener noreferrer"
+								><img
+									src={'https://gtcdn.info/paxdei/' +
+										ingredient.entity.iconPath.replace('{height}', 64)}
+									alt={ingredient.entity.name}
+									class="ingredient-icon"
+								/></a
+							>
 							<div class="info">
 								<div class="info-title">
 									<img
@@ -66,12 +72,7 @@
 											ingredient.entity.tierIconPath.replace('{height}', 64)}
 										alt={ingredient.entity.name}
 									/>
-									<a
-										href="https://paxdei.gaming.tools/{ingredient.entity.listingPath}/{ingredient
-											.entity.id}"
-										target="_blank"
-										><h4>{ingredient.entity.name} (x{ingredient.count * itemCount})</h4></a
-									>
+									<h4>{ingredient.entity.name} (x{ingredient.count * itemCount})</h4>
 								</div>
 
 								<p>
@@ -142,16 +143,10 @@
 		align-items: center;
 		gap: 20px;
 	}
-	.info-title a {
-		text-decoration: none;
-		color: white;
-	}
+
 	.header-info h2 {
 		margin: 0 0 5px 0;
 		color: #fff;
-	}
-	.header-info a {
-		text-decoration: none;
 	}
 
 	.header-info p {
