@@ -5,6 +5,7 @@
 	import SearchItem from './SearchItem.svelte';
 	import Standby from './Standby.svelte';
 	import PlannerRecipe from '$lib/classes/PlannerRecipe';
+	import Updates from './Updates.svelte';
 
 	let { data } = $props();
 	let recipes = data.recipes;
@@ -41,6 +42,7 @@
 		<IngredientsFor {selectedRecipeProp} {recipes} />
 	{/if}
 	<Planner {selectedRecipeProp} {itemCount} bind:planner {recipes} {updateCount} />
+	<Updates />
 </main>
 
 <style>

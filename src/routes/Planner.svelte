@@ -88,7 +88,7 @@
 		transition: background 0.2s ease;
 	}
 	.sidebar-toggle:hover {
-		background: hsl(222, 15%, 50%);
+		background: hsl(222, 15%, 25%);
 	}
 	.planner-count {
 		position: absolute;
