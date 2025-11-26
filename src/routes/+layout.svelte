@@ -1,6 +1,7 @@
 <script>
 	/** @type {import('./$types').LayoutProps} */
 	import favicon from '$lib/assets/favicon.png';
+	import mixpanel from 'mixpanel-browser';
 
 	let { children } = $props();
 	import { onMount } from 'svelte';
@@ -17,14 +18,14 @@
 		document.body.appendChild(script);
 	});
 
-	//Import Mixpanel SDK
-	import mixpanel from 'mixpanel-browser';
-
 	// Create an instance of the Mixpanel object, your token is already added to this snippet
 	mixpanel.init('0de81db040a4d0b62f96958051433d96', {
 		autocapture: true,
+		track_pageview: true,
+		persistence: 'localStorage',
 		record_sessions_percent: 100,
-		api_host: 'https://api-eu.mixpanel.com'
+		api_host: 'https://api-eu.mixpanel.com',
+		record_mask_text_selector: ''
 	});
 </script>
 
