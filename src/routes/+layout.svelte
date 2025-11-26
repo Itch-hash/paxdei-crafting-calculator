@@ -16,6 +16,16 @@
 		script.async = true;
 		document.body.appendChild(script);
 	});
+
+	//Import Mixpanel SDK
+	import mixpanel from 'mixpanel-browser';
+
+	// Create an instance of the Mixpanel object, your token is already added to this snippet
+	mixpanel.init('0de81db040a4d0b62f96958051433d96', {
+		autocapture: true,
+		record_sessions_percent: 100,
+		api_host: 'https://api-eu.mixpanel.com'
+	});
 </script>
 
 <svelte:head>
