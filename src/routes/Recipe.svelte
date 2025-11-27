@@ -251,7 +251,7 @@
 		border: none;
 		border-radius: 0.75rem;
 		background-color: #262a33;
-		color: #f5f5f5;
+		color: #8aa9ff;
 		font-weight: 500;
 		cursor: pointer;
 		transition:
