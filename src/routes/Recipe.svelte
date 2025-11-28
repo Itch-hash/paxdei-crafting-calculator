@@ -130,6 +130,13 @@
 		position: relative;
 	}
 
+	@media screen and (max-width: 600px) {
+		.recipe-card .recipe-header {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
 	.main-icon {
 		width: 64px;
 		height: 64px;

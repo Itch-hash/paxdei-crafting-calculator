@@ -1,4 +1,6 @@
 <script>
+	import MissingRecipe from './MissingRecipe.svelte';
+
 	let { recipes, selectedRecipeProp = $bindable(null), itemCount = $bindable(1) } = $props();
 	let searchTerm = $state('');
 	let isFocused = $state(false);
@@ -92,6 +94,7 @@
 
 	<label class="itemCount" for="itemCount">Count:</label>
 	<input type="number" id="itemCount" class="count-input" min="1" bind:value={itemCount} />
+	<MissingRecipe />
 </section>
 
 <style>
