@@ -21,7 +21,9 @@
 					.listingPath}/{selectedRecipeProp.outputs[0].entity.id}"
 				target="_blank"
 				><img
-					src={'https://gtcdn.info/paxdei/' + selectedRecipeProp.iconPath.replace('{height}', 64)}
+					src={'https://gtcdn.info/paxdei/' +
+						selectedRecipeProp.iconPath.replace('{height}', 64) +
+						'?1764356679632'}
 					alt={selectedRecipeProp.name}
 					class="main-icon"
 				/></a
@@ -59,7 +61,8 @@
 								rel="noopener noreferrer"
 								><img
 									src={'https://gtcdn.info/paxdei/' +
-										ingredient.entity.iconPath.replace('{height}', 64)}
+										ingredient.entity.iconPath.replace('{height}', 64) +
+										'?1764356679632'}
 									alt={ingredient.entity.name}
 									class="ingredient-icon"
 								/></a

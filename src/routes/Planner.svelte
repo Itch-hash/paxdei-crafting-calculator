@@ -36,7 +36,9 @@
 					<li class="main-tree">
 						<div class="tree-item">
 							<img
-								src={'https://gtcdn.info/paxdei/' + item.iconPath.replace('{height}', 64)}
+								src={'https://gtcdn.info/paxdei/' +
+									item.iconPath.replace('{height}', 64) +
+									'?1764356679632'}
 								alt={item.name}
 							/>
 							<span class="recipe-name">{item.name} (x{item.output})</span>

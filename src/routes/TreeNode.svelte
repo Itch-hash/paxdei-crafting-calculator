@@ -21,7 +21,7 @@
 <li>
 	<div class="tree-item">
 		<img
-			src={'https://gtcdn.info/paxdei/' + node.iconPath.replace('{height}', 64)}
+			src={'https://gtcdn.info/paxdei/' + node.iconPath.replace('{height}', 64) + '?1764356679632'}
 			alt={node.name}
 		/>
 		<span style="color:{color}" class="ingredient"

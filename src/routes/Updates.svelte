@@ -11,10 +11,13 @@
 	onclick={() => (isOpen = true)}
 	onkeydown={() => (isOpen = true)}
 	><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-		><path
-			d="M21.08 16.53A16.05 16.05 0 0 1 19 9.02C19 5.22 16.18 2 12 2a7 7 0 0 0-7 7c0 3.16-1.2 5.92-2.08 7.53A1 1 0 0 0 3.8 18h3.98c.13 2.23 1.97 4 4.22 4s4.09-1.77 4.22-4h3.98a1 1 0 0 0 .88-1.47ZM12 20c-1.16 0-2.1-.88-2.22-2h4.45a2.25 2.25 0 0 1-2.22 2Zm-6.59-4C6.24 14.14 7 11.71 7 9s2.24-5 5-5c2.96 0 5 2.23 5 5.02 0 2.71.76 5.13 1.59 6.98H5.41Z"
-			fill="#FCF6FF"
-		></path></svg
+		><g fill="#FFFFFF"
+			><g
+				><path
+					d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16ZM13.25 16H13v-5a1 1 0 0 0-1-1h-1c-.55 0-1 .45-1 1s.45 1 1 1v5a1 1 0 0 0 1 1h1.25c.55 0 1-.45 1-1s-.45-1-1-1Z"
+				></path><circle cx="12" cy="7" r="1.25"></circle></g
+			></g
+		></svg
 	></button
 >
 
@@ -22,15 +25,26 @@
 	<div class="update-menu">
 		<div class="update-content">
 			<button class="close-btn" onclick={() => toggleMenu()}>×</button>
-			<h4>Update <span><i>v 1.1</i></span></h4>
+			<h4>
+				Update <span><i>v 1.1.1</i></span><small style="font-size: x-small;"><i> 29-Nov</i></small>
+			</h4>
 			<ul>
-				<li>Planner now saves recipes selected</li>
-				<li>Can now change count for planner items</li>
+				<li>
+					Users can now report missing/incorrect recipes using the button <br /> at the bottom of the
+					page.
+				</li>
+			</ul>
+			<h4>
+				Update <span><i>v 1.1</i></span><small style="font-size: x-small;"><i> 25-Nov</i></small>
+			</h4>
+			<ul>
+				<li>Planner now saves recipes selected.</li>
+				<li>Can now change count for planner items.</li>
 			</ul>
 			<p><i>WIP</i></p>
 			<ul>
-				<li>Have a todo list for planner items</li>
-				<li>Retractable planner list for better accessbility</li>
+				<li>Have a todo list for planner items.</li>
+				<li>Retractable planner list for better accessbility.</li>
 			</ul>
 			<p>For feedback and suggestions message <i>@notsoitchy</i> on Discord</p>
 		</div>
@@ -65,7 +79,7 @@
 		display: block;
 		position: fixed;
 		margin: auto;
-		z-index: 1001;
+		z-index: 999;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -86,6 +100,7 @@
 		transition: color 0.2s ease;
 		right: 1rem;
 		top: 1rem;
+		background: none;
 	}
 
 	.close-btn:hover {
