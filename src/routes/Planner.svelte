@@ -209,6 +209,7 @@
 		background: #666;
 	}
 	.main-tree {
+		padding-bottom: 1rem;
 		border-bottom: 4px solid #17172b;
 	}
 
