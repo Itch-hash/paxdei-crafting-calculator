@@ -15,7 +15,6 @@
 		'#D1C4E9'
 	];
 	let color = $derived(colors[depth] || colors[colors.length - 1]);
-	// $effect(() => console.log(child));
 </script>
 
 <li>
@@ -28,8 +27,8 @@
 			>{node.name} (x{node.totalAmount.toFixed(1)})</span
 		>
 	</div>
-	{#if node.subIngredients.length}
-		{#each node.subIngredients as child}
+	{#if node.ingredients.length}
+		{#each node.ingredients as child}
 			<ul style="padding-left: {0.5 * depth}rem">
 				<TreeNode node={child} depth={depth + 1} />
 			</ul>

@@ -7,6 +7,8 @@
 	import PlannerRecipe from '$lib/classes/PlannerRecipe';
 	import Updates from './Updates.svelte';
 	import MissingRecipe from './MissingRecipe.svelte';
+	//TO be removed
+	import MaterialBreakdown from './MaterialBreakdown.svelte';
 
 	let { data } = $props();
 	let recipes = data.recipes;
@@ -18,12 +20,40 @@
 	let selectedRecipeProp = $state(null);
 	let itemCount = $state(1);
 	let planner = $state([]);
+
+	//For restructuring old node structures from .subIngredients to .Ingredients
+	function normalizePlannerTree(node) {
+		if (Array.isArray(node)) {
+			return node.map(normalizePlannerTree);
+		}
+		if (typeof node !== 'object' || node === null) {
+			return node;
+		}
+
+		let normalized = { ...node };
+
+		let children = normalized.ingredients ?? normalized.subIngredients ?? [];
+
+		normalized.ingredients = children.map(normalizePlannerTree);
+
+		delete normalized.subIngredients;
+
+		return normalized;
+	}
+
 	$effect(() => {
 		const saved = localStorage.getItem('planner');
-		if (saved) planner = JSON.parse(saved);
+		if (saved) {
+			let parsed = JSON.parse(saved);
+
+			// MIGRATION OCCURS HERE
+			planner = normalizePlannerTree(parsed);
+		}
 	});
 	$effect(() => {
-		localStorage.setItem('planner', JSON.stringify(planner));
+		if (planner) {
+			localStorage.setItem('planner', JSON.stringify(planner));
+		}
 	});
 	function updateCount(item, newValue) {
 		const index = planner.findIndex((i) => i.id === item.id);

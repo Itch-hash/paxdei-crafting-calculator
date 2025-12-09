@@ -3,13 +3,26 @@
 	function toggleMenu() {
 		isOpen = !isOpen;
 	}
+
+	let showBlip = $state(false);
+
+	const currentVersion = '1.2.1';
+
+	$effect(() => {
+		const lastSeenVersion = localStorage.getItem('lastSeenVersion');
+		if (currentVersion != lastSeenVersion) {
+			showBlip = true;
+		} else showBlip = false;
+	});
+
+	function openPanel() {
+		localStorage.setItem('lastSeenVersion', currentVersion);
+		isOpen = true;
+		showBlip = false;
+	}
 </script>
 
-<button
-	aria-label="button"
-	type="button"
-	onclick={() => (isOpen = true)}
-	onkeydown={() => (isOpen = true)}
+<button aria-label="button" type="button" onclick={() => openPanel()} onkeydown={() => openPanel()}
 	><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
 		><g fill="#FFFFFF"
 			><g
@@ -18,7 +31,9 @@
 				></path><circle cx="12" cy="7" r="1.25"></circle></g
 			></g
 		></svg
-	></button
+	>{#if showBlip}
+		<span class="blip"></span>
+	{/if}</button
 >
 
 {#if isOpen}
@@ -26,20 +41,34 @@
 		<div class="update-content">
 			<button class="close-btn" onclick={() => toggleMenu()}>×</button>
 			<h4>
+				Update <span><i>v 1.2</i></span><small style="font-size: x-small;"
+					><i> 07-Dec</i>
+					<span style="color:gold">New</span></small
+				>
+			</h4>
+			<ul>
+				<li>
+					Total Raw Materials are calculated and added to the top when items are added to the
+					Planner.
+				</li>
+				<li>
+					Renamed Crafting menu from <s>Crafting Tree</s> to Planner for convenience.
+				</li>
+			</ul>
+			<h4>
 				Update <span><i>v 1.1.1</i></span><small style="font-size: x-small;"><i> 29-Nov</i></small>
 			</h4>
 			<ul>
 				<li>
-					Users can now report missing/incorrect recipes using the button <br /> at the bottom of the
-					page.
+					Users can report missing/incorrect recipes using the button <br /> at the bottom of the page.
 				</li>
 			</ul>
 			<h4>
 				Update <span><i>v 1.1</i></span><small style="font-size: x-small;"><i> 25-Nov</i></small>
 			</h4>
 			<ul>
-				<li>Planner now saves recipes selected.</li>
-				<li>Can now change count for planner items.</li>
+				<li>Planner saves recipes selected.</li>
+				<li>Can change count for planner items.</li>
 			</ul>
 			<p><i>WIP</i></p>
 			<ul>
@@ -108,5 +137,29 @@
 	}
 	.update-content::-webkit-scrollbar {
 		width: 1px;
+	}
+	.blip {
+		position: absolute;
+		top: -4px;
+		right: -4px;
+		width: 10px;
+		height: 10px;
+		background-color: #ff3b30;
+		border-radius: 50%;
+		box-shadow: 0 0 6px rgba(255, 59, 48, 0.6);
+		border: 2px solid hsl(222, 15%, 20%);
+		pointer-events: none;
+		animation: blip-pulse 1.4s infinite;
+	}
+	@keyframes blip-pulse {
+		0% {
+			transform: scale(0.9);
+		}
+		50% {
+			transform: scale(1.15);
+		}
+		100% {
+			transform: scale(0.9);
+		}
 	}
 </style>

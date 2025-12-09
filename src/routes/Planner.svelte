@@ -1,9 +1,10 @@
 <script>
 	import PlannerRecipe from '$lib/classes/PlannerRecipe';
 	import TreeNode from './TreeNode.svelte';
+	import MaterialBreakdown from './MaterialBreakdown.svelte';
+
 	let { itemCount, selectedRecipeProp, data, planner, recipes, updateCount } = $props();
 	let isOpen = $state(false);
-	// $effect(() => $inspect(console.log($inspect(planner))));
 
 	function toggleSidebar() {
 		isOpen = !isOpen;
@@ -16,7 +17,7 @@
 
 <!-- Sidebar Toggle Button -->
 <button class="sidebar-toggle" onclick={toggleSidebar}>
-	☰ Crafting Tree {#if planner}
+	☰ Planner {#if planner}
 		{#each planner as item, i}
 			<span class="planner-count">{i + 1}</span>
 		{/each}
@@ -31,6 +32,8 @@
 	</header>
 	{#if !planner.length == 0}
 		<div class="sidebar-content">
+			<MaterialBreakdown node={planner} />
+			<h3>Recipes</h3>
 			{#each planner as item}
 				<ul class="recipe-tree">
 					<li class="main-tree">
@@ -62,7 +65,9 @@
 			{/each}
 		</div>
 	{:else}
-		<p class="no-planner-items">Add Items to Planner to show them here</p>
+		<p class="no-planner-items">
+			Click on Add to Planner when you look for items to show them here
+		</p>
 	{/if}
 </aside>
 
@@ -254,5 +259,7 @@
 		text-align: center;
 		margin-top: 14rem;
 		font-size: large;
+		margin-right: 1rem;
+		margin-left: 1rem;
 	}
 </style>

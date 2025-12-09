@@ -21,7 +21,7 @@ export default class PlannerRecipe {
 				if (ingredient.entity.id === recipe.outputs[0].entity.id) {
 					found = true;
 					let craftsNeeded = totalAmount / recipe.outputs[0].count;
-					const subIngredients = this.buildIngredientItems(
+					const ingredients = this.buildIngredientItems(
 						recipe.itemIngredients,
 						allRecipes,
 						craftsNeeded
@@ -32,7 +32,7 @@ export default class PlannerRecipe {
 						name: ingredient.entity.name,
 						iconPath: ingredient.entity.iconPath,
 						totalAmount,
-						subIngredients,
+						ingredients,
 						output: recipe.outputs[0].count * craftsNeeded
 					});
 
@@ -47,7 +47,7 @@ export default class PlannerRecipe {
 					name: ingredient.entity.name,
 					iconPath: ingredient.entity.iconPath,
 					totalAmount,
-					subIngredients: []
+					ingredients: []
 				});
 			}
 		}
