@@ -8,7 +8,6 @@
 	import Updates from './Updates.svelte';
 	import MissingRecipe from './MissingRecipe.svelte';
 	//TO be removed
-	import MaterialBreakdown from './MaterialBreakdown.svelte';
 
 	let { data } = $props();
 	let recipes = data.recipes;

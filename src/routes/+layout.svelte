@@ -25,7 +25,8 @@
 		persistence: 'localStorage',
 		record_sessions_percent: 100,
 		api_host: 'https://api-eu.mixpanel.com',
-		record_mask_text_selector: ''
+		record_mask_text_selector: '',
+		record_block_selector: ''
 	});
 </script>
 
