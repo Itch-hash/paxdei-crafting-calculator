@@ -19,11 +19,17 @@
 
 {#if !relatedRecipes.length == 0}
 	<section class="ingredient-for-section">
-		<h2>Used Also As An Ingredient For {relatedRecipes.length} Recipes</h2>
+		<h2>
+			Used Also As An Ingredient For {relatedRecipes.length}
+			{#if relatedRecipes.length == 1}
+				Recipe
+			{:else}Recipes
+			{/if}
+		</h2>
 		<ul id="ingredient-for-list"></ul>
 
 		<div class="ingredient-for-info">
-			{#if relatedRecipes.length > 1}
+			{#if relatedRecipes.length >= 1}
 				{#each relatedRecipes as relatedRecipe}
 					<a
 						href="https://paxdei.gaming.tools/{relatedRecipe.outputs[0].entity
