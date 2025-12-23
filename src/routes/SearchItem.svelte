@@ -30,7 +30,7 @@
 	);
 
 	const filteredNames = $derived(
-		recipeNames.filter((element) => {
+		recipeNames.sort().filter((element) => {
 			if (isFocused || searchTerm !== '') {
 				return element.toLowerCase().includes(searchTerm.toLowerCase());
 			}
