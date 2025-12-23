@@ -2,12 +2,16 @@
 	let { recipes, selectedRecipeProp = $bindable(null), itemCount = $bindable(1) } = $props();
 	let searchTerm = $state('');
 	let isFocused = $state(false);
-	const recipeNames = recipes.map((element, i, array) => {
-		return array[i].name;
-	});
-	const recipeIDs = recipes.map((element, i, array) => {
-		return array[i].id;
-	});
+	const recipeNames = $derived(
+		recipes.map((element, i, array) => {
+			return array[i].name;
+		})
+	);
+	const recipeIDs = $derived(
+		recipes.map((element, i, array) => {
+			return array[i].id;
+		})
+	);
 
 	const filteredSearchTerm = $derived(searchTerm.replace('(Alternative)', '').trim());
 	const filteredRecipe = $derived(

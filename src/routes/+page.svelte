@@ -10,11 +10,13 @@
 	//TO be removed
 
 	let { data } = $props();
-	let recipes = data.recipes;
+	let recipes = $derived(data.recipes);
 
-	let recipeImages = recipes.map((element, i, array) => {
-		return array[i].iconPath;
-	});
+	let recipeImages = $derived(
+		recipes.map((element, i, array) => {
+			return array[i].iconPath;
+		})
+	);
 
 	let selectedRecipeProp = $state(null);
 	let itemCount = $state(1);

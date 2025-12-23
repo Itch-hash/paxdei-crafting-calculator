@@ -35,16 +35,13 @@
 		<span class="blip"></span>
 	{/if}</button
 >
-
+<!-- <span style="color:gold">New</span> -->
 {#if isOpen}
 	<div class="update-menu">
 		<div class="update-content">
 			<button class="close-btn" onclick={() => toggleMenu()}>×</button>
 			<h4>
-				Update <span><i>v 1.2</i></span><small style="font-size: x-small;"
-					><i> 07-Dec</i>
-					<span style="color:gold">New</span></small
-				>
+				Update <span><i>v 1.2</i></span><small style="font-size: x-small;"><i> 07-Dec</i> </small>
 			</h4>
 			<ul>
 				<li>
