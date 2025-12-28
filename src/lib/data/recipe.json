@@ -38132,12 +38132,12 @@
 			},
 			{
 				"entity": {
-					"id": "item_material_meat_boar_neck",
-					"name": "Boar Neck Meat",
-					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/animalmeat/t_meat_boar_neck_01_icon.webp",
-					"tier": 2,
-					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
-					"itemLevel": 15,
+					"id": "item_material_meat_boar_round",
+					"name": "Boar Round Meat",
+					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/animalmeat/t_meat_boar_round_01_icon.webp",
+					"tier": 4,
+					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier4.webp",
+					"itemLevel": 30,
 					"entityType": "Item",
 					"entityTypeName": "Item",
 					"listingPath": "items",
