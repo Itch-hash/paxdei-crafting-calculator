@@ -9,7 +9,8 @@
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"test": "node backenddp.cjs"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",
@@ -32,5 +33,7 @@
 	"dependencies": {
 		"create-cloudflare": "^2.53.0",
 		"mixpanel-browser": "^2.72.0"
-	}
+	},
+	"author": "Hesham Fekry",
+	"homepage": "https://paxdei-calculator.com/"
 }
