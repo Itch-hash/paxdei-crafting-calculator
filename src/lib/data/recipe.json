@@ -142138,7 +142138,7 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 5
+				"count": 4
 			}
 		],
 		"skillRequired": {
@@ -142168,7 +142168,7 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 5
+				"count": 2
 			}
 		],
 		"xpMultiplier": 3.6,
