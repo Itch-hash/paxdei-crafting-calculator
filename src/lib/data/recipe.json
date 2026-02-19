@@ -62571,7 +62571,7 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 5
+				"count": 4
 			}
 		],
 		"skillRequired": {
@@ -62601,7 +62601,7 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 5
+				"count": 2
 			}
 		],
 		"xpMultiplier": 1.7,
@@ -145748,22 +145748,22 @@
 					"listingPath": "items",
 					"categoryIds": ["building"]
 				},
-				"count": 10
+				"count": 16
 			},
 			{
 				"entity": {
-					"id": "item_material_wrought_iron_nails",
-					"name": "Wrought Iron Nails",
-					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_nail_wrought_iron.webp",
-					"tier": 3,
-					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
-					"itemLevel": 21,
+					"id": "item_material_iron_bar",
+					"name": "Iron Bar",
+					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_bar_iron_.webp",
+					"tier": 2,
+					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+					"itemLevel": 11,
 					"entityType": "Item",
 					"entityTypeName": "Item",
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 40
+				"count": 2
 			},
 			{
 				"entity": {
@@ -145797,18 +145797,33 @@
 			},
 			{
 				"entity": {
-					"id": "item_material_cotton_cloth_coarse",
-					"name": "Coarse Cotton Cloth",
-					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_cotton_cloth_coarse.webp",
-					"tier": 3,
-					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
-					"itemLevel": 22,
+					"id": "item_material_cotton_cloth",
+					"name": "Cotton Cloth",
+					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_cotton_cloth.webp",
+					"tier": 4,
+					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier4.webp",
+					"itemLevel": 32,
 					"entityType": "Item",
 					"entityTypeName": "Item",
 					"listingPath": "items",
 					"categoryIds": ["tailoring"]
 				},
-				"count": 2
+				"count": 8
+			},
+			{
+				"entity": {
+					"id": "item_material_bronze_nails",
+					"name": "Bronze Nails",
+					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_nail_bronze.webp",
+					"tier": 1,
+					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+					"itemLevel": 4,
+					"entityType": "Item",
+					"entityTypeName": "Item",
+					"listingPath": "items",
+					"categoryIds": ["blacksmithing"]
+				},
+				"count": 100
 			}
 		],
 		"xpMultiplier": 2.8,
