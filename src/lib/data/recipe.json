@@ -183830,7 +183830,7 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 1
+				"count": 2
 			}
 		],
 		"skillRequired": {
@@ -183860,7 +183860,7 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 8
+				"count": 15
 			},
 			{
 				"entity": {
@@ -183875,7 +183875,7 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 2
+				"count": 4
 			},
 			{
 				"entity": {
@@ -183890,7 +183890,7 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 50
+				"count": 100
 			}
 		],
 		"xpMultiplier": 2.8,
