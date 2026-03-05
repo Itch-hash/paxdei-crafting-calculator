@@ -184229,24 +184229,9 @@
 					"categoryIds": ["blacksmithing"]
 				},
 				"count": 2
-			},
-			{
-				"entity": {
-					"id": "item_material_leather_bands_coarse",
-					"name": "Coarse Leather Band",
-					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_leather_bands_coarse.webp",
-					"tier": 1,
-					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
-					"itemLevel": 4,
-					"entityType": "Item",
-					"entityTypeName": "Item",
-					"listingPath": "items",
-					"categoryIds": ["leatherworking"]
-				},
-				"count": 5
 			}
 		],
-		"xpMultiplier": 2.8,
+		"xpMultiplier": 7.42,
 		"quality": "common",
 		"entityType": "Recipe",
 		"entityTypeName": "Recipe",
