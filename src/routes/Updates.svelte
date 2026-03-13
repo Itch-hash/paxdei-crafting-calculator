@@ -6,7 +6,7 @@
 
 	let showBlip = $state(false);
 
-	const currentVersion = '1.2.1';
+	const currentVersion = '1.3';
 
 	$effect(() => {
 		const lastSeenVersion = localStorage.getItem('lastSeenVersion');
@@ -41,7 +41,28 @@
 		<div class="update-content">
 			<button class="close-btn" onclick={() => toggleMenu()}>×</button>
 			<h4>
-				Update <span><i>v 1.2</i></span><small style="font-size: x-small;"><i> 07-Dec</i> </small>
+				Update <span><i>v 2</i>&nbsp;</span><small style="font-size: x-small;"
+					><i> 13-Mar</i>
+				</small>
+			</h4>
+			<ul>
+				<li>
+					I would love to thank you all for using my website, currently my interests are to be
+					elsewhere but since you are being such an amazing community, I will be still updating all
+					the recipes you report. <br />
+					As of right now, I have updated around 20 recipes you have reported, updating the recipe takes
+					about 24-48 hours max, thank you again and enjoy Paxdei!
+				</li>
+				<br />
+				<li>
+					If you are a developer and would like to work on the project and make it even better!
+					don't hesitate to reach out to me on discord @notsoitchy and let's have a chat.
+				</li>
+			</ul>
+			<h4>
+				Update <span><i>v 1.2</i>&nbsp;</span><small style="font-size: x-small;"
+					><i> 07-Dec-25</i>
+				</small>
 			</h4>
 			<ul>
 				<li>
@@ -53,7 +74,9 @@
 				</li>
 			</ul>
 			<h4>
-				Update <span><i>v 1.1.1</i></span><small style="font-size: x-small;"><i> 29-Nov</i></small>
+				Update <span><i>v 1.1.1</i>&nbsp;</span><small style="font-size: x-small;"
+					><i> 29-Nov-25</i></small
+				>
 			</h4>
 			<ul>
 				<li>
@@ -61,7 +84,9 @@
 				</li>
 			</ul>
 			<h4>
-				Update <span><i>v 1.1</i></span><small style="font-size: x-small;"><i> 25-Nov</i></small>
+				Update <span><i>v 1.1</i>&nbsp;</span><small style="font-size: x-small;"
+					><i> 25-Nov-25</i></small
+				>
 			</h4>
 			<ul>
 				<li>Planner saves recipes selected.</li>
