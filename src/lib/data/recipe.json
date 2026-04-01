@@ -6358,6 +6358,36 @@
 					"categoryIds": ["blacksmithing"]
 				},
 				"count": 20
+			},
+			{
+				"entity": {
+					"id": "item_material_bronze_bar",
+					"name": "Bronze Bar",
+					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_bar_bronze.webp",
+					"tier": 1,
+					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
+					"itemLevel": 3,
+					"entityType": "Item",
+					"entityTypeName": "Item",
+					"listingPath": "items",
+					"categoryIds": ["blacksmithing"]
+				},
+				"count": 3
+			},
+			{
+				"entity": {
+					"id": "item_relic_faction_inquisitor_01",
+					"name": "Worn Out Locket",
+					"iconPath": "/images/{height}/environment/props/economy/enemydrops/relics/t_icon_relic_inquisitor_steel.webp",
+					"tier": 2,
+					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+					"itemLevel": 11,
+					"entityType": "Item",
+					"entityTypeName": "Item",
+					"listingPath": "items",
+					"categoryIds": ["faction"]
+				},
+				"count": 4
 			}
 		],
 		"xpMultiplier": 1.4,
@@ -6503,7 +6533,7 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 5
+				"count": 8
 			},
 			{
 				"entity": {
@@ -6518,7 +6548,7 @@
 					"listingPath": "items",
 					"categoryIds": ["tailoring"]
 				},
-				"count": 20
+				"count": 40
 			},
 			{
 				"entity": {
@@ -6668,18 +6698,18 @@
 			},
 			{
 				"entity": {
-					"id": "item_material_wood_long_stock_fine",
-					"name": "Long Fine Wood Stock",
-					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_long_stock_fine.webp",
+					"id": "item_material_wrought_iron_bar",
+					"name": "Wrought Iron Bar",
+					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_bar_wrought_iron.webp",
 					"tier": 3,
 					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier3.webp",
-					"itemLevel": 23,
+					"itemLevel": 20,
 					"entityType": "Item",
 					"entityTypeName": "Item",
 					"listingPath": "items",
-					"categoryIds": ["building"]
+					"categoryIds": ["blacksmithing"]
 				},
-				"count": 1
+				"count": 6
 			},
 			{
 				"entity": {
@@ -6694,7 +6724,7 @@
 					"listingPath": "items",
 					"categoryIds": ["tailoring"]
 				},
-				"count": 20
+				"count": 40
 			},
 			{
 				"entity": {
@@ -6725,21 +6755,6 @@
 					"categoryIds": ["leatherworking"]
 				},
 				"count": 10
-			},
-			{
-				"entity": {
-					"id": "item_material_bronze_sheet",
-					"name": "Bronze Sheet",
-					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_sheet_bronze.webp",
-					"tier": 1,
-					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
-					"itemLevel": 4,
-					"entityType": "Item",
-					"entityTypeName": "Item",
-					"listingPath": "items",
-					"categoryIds": ["blacksmithing"]
-				},
-				"count": 2
 			}
 		],
 		"xpMultiplier": 4.7,
@@ -6885,7 +6900,7 @@
 					"listingPath": "items",
 					"categoryIds": ["building"]
 				},
-				"count": 1
+				"count": 2
 			},
 			{
 				"entity": {
@@ -6900,16 +6915,16 @@
 					"listingPath": "items",
 					"categoryIds": ["tailoring"]
 				},
-				"count": 20
+				"count": 40
 			},
 			{
 				"entity": {
-					"id": "item_material_leather_bands_coarse",
-					"name": "Coarse Leather Band",
-					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_leather_bands_coarse.webp",
-					"tier": 1,
-					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
-					"itemLevel": 4,
+					"id": "item_material_leather_bands",
+					"name": "Leather Band",
+					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_leather_bands.webp",
+					"tier": 4,
+					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier4.webp",
+					"itemLevel": 33,
 					"entityType": "Item",
 					"entityTypeName": "Item",
 					"listingPath": "items",
@@ -155845,37 +155860,22 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 1
+				"count": 2
 			},
 			{
 				"entity": {
-					"id": "item_material_bronze_nails",
-					"name": "Bronze Nails",
-					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_nail_bronze.webp",
-					"tier": 1,
-					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
-					"itemLevel": 4,
+					"id": "item_material_iron_nails",
+					"name": "Iron Nails",
+					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_nail_iron.webp",
+					"tier": 2,
+					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+					"itemLevel": 12,
 					"entityType": "Item",
 					"entityTypeName": "Item",
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 20
-			},
-			{
-				"entity": {
-					"id": "item_material_leather_bands_coarse",
-					"name": "Coarse Leather Band",
-					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_leather_bands_coarse.webp",
-					"tier": 1,
-					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
-					"itemLevel": 4,
-					"entityType": "Item",
-					"entityTypeName": "Item",
-					"listingPath": "items",
-					"categoryIds": ["leatherworking"]
-				},
-				"count": 20
+				"count": 40
 			},
 			{
 				"entity": {
@@ -155890,7 +155890,7 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 2
+				"count": 6
 			}
 		],
 		"xpMultiplier": 2.8,
@@ -167665,37 +167665,22 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 1
+				"count": 2
 			},
 			{
 				"entity": {
-					"id": "item_material_bronze_nails",
-					"name": "Bronze Nails",
-					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_nail_bronze.webp",
-					"tier": 1,
-					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
-					"itemLevel": 4,
+					"id": "item_material_iron_nails",
+					"name": "Iron Nails",
+					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_nail_iron.webp",
+					"tier": 2,
+					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier2.webp",
+					"itemLevel": 12,
 					"entityType": "Item",
 					"entityTypeName": "Item",
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 20
-			},
-			{
-				"entity": {
-					"id": "item_material_leather_bands_coarse",
-					"name": "Coarse Leather Band",
-					"iconPath": "/images/{height}/environment/props/economy/craftingproducts/icons/t_icon_leather_bands_coarse.webp",
-					"tier": 1,
-					"tierIconPath": "/images/{height}/game/ux/inventory/textures/tier/t_ui_item_tier1.webp",
-					"itemLevel": 4,
-					"entityType": "Item",
-					"entityTypeName": "Item",
-					"listingPath": "items",
-					"categoryIds": ["leatherworking"]
-				},
-				"count": 20
+				"count": 40
 			},
 			{
 				"entity": {
@@ -167710,7 +167695,7 @@
 					"listingPath": "items",
 					"categoryIds": ["blacksmithing"]
 				},
-				"count": 2
+				"count": 6
 			}
 		],
 		"xpMultiplier": 9.4,
