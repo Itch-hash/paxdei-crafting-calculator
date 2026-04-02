@@ -1,4 +1,5 @@
 <script>
+	import { buildAssetUrl } from '$lib/utils/assets';
 	import TreeNode from './TreeNode.svelte';
 	let { node, depth = 0 } = $props();
 
@@ -19,16 +20,13 @@
 
 <li>
 	<div class="tree-item">
-		<img
-			src={'https://gtcdn.info/paxdei/' + node.iconPath.replace('{height}', 64) + '?1764356679632'}
-			alt={node.name}
-		/>
+		<img src={buildAssetUrl(node.iconPath)} alt={node.name} />
 		<span style="color:{color}" class="ingredient"
 			>{node.name} (x{node.totalAmount.toFixed(1)})</span
 		>
 	</div>
 	{#if node.ingredients.length}
-		{#each node.ingredients as child}
+		{#each node.ingredients as child (child.id)}
 			<ul style="padding-left: {0.5 * depth}rem">
 				<TreeNode node={child} depth={depth + 1} />
 			</ul>

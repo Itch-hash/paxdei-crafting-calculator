@@ -1,6 +1,6 @@
 <script>
-	import MaterialBreakdown from './MaterialBreakdown.svelte';
-	let { node, depth = 0 } = $props();
+	import { buildAssetUrl } from '$lib/utils/assets';
+	let { node } = $props();
 	let rawMats = $state([]);
 	function findLeaf(node) {
 		let result = [];
@@ -11,7 +11,7 @@
 				result.push(item);
 			}
 		}
-		const sortedDup = result.reduce((acc, item, i) => {
+		const sortedDup = result.reduce((acc, item) => {
 			if (!acc[item.id]) {
 				acc[item.id] = { ...item };
 			} else {
@@ -22,19 +22,13 @@
 		return Object.values(sortedDup);
 	}
 	$effect(() => (rawMats = findLeaf(node)));
-	$inspect(rawMats);
 </script>
 
 <h3>Total Raw Materials</h3>
 <div class="card-container">
-	{#each rawMats as rawMat}
+	{#each rawMats as rawMat (rawMat.id)}
 		<div class="card">
-			<img
-				src={'https://gtcdn.info/paxdei/' +
-					rawMat.iconPath.replace('{height}', 64) +
-					'?1764356679632'}
-				alt={rawMat.name}
-			/>
+			<img src={buildAssetUrl(rawMat.iconPath)} alt={rawMat.name} />
 
 			<p class="name">{rawMat.name}</p>
 			<p class="amount">x {rawMat.totalAmount.toFixed(1)}</p>

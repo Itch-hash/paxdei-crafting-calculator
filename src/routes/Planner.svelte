@@ -1,9 +1,9 @@
 <script>
-	import PlannerRecipe from '$lib/classes/PlannerRecipe';
-	import TreeNode from './TreeNode.svelte';
+	import { buildAssetUrl } from '$lib/utils/assets';
 	import MaterialBreakdown from './MaterialBreakdown.svelte';
+	import TreeNode from './TreeNode.svelte';
+	let { planner, updateCount } = $props();
 
-	let { itemCount, selectedRecipeProp, data, planner, recipes, updateCount } = $props();
 	let isOpen = $state(false);
 
 	function toggleSidebar() {
@@ -18,7 +18,7 @@
 <!-- Sidebar Toggle Button -->
 <button class="sidebar-toggle" onclick={toggleSidebar}>
 	☰ Planner {#if planner}
-		{#each planner as item, i}
+		{#each planner as item, i (item.id)}
 			<span class="planner-count">{i + 1}</span>
 		{/each}
 	{/if}</button
@@ -34,16 +34,11 @@
 		<div class="sidebar-content">
 			<MaterialBreakdown node={planner} />
 			<h3>Recipes</h3>
-			{#each planner as item}
+			{#each planner as item (item.id)}
 				<ul class="recipe-tree">
 					<li class="main-tree">
 						<div class="tree-item">
-							<img
-								src={'https://gtcdn.info/paxdei/' +
-									item.iconPath.replace('{height}', 64) +
-									'?1764356679632'}
-								alt={item.name}
-							/>
+							<img src={buildAssetUrl(item.iconPath)} alt={item.name} />
 							<span class="recipe-name">{item.name} (x{item.output})</span>
 							<input
 								type="number"
@@ -56,7 +51,7 @@
 							<button class="tree-btn" onclick={() => removeItem(item)}>×</button>
 						</div>
 						<ul>
-							{#each item.ingredients as ingredient}
+							{#each item.ingredients as ingredient (ingredient.id)}
 								<TreeNode node={ingredient} depth={1} />
 							{/each}
 						</ul>

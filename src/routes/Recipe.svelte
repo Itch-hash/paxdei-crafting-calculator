@@ -1,6 +1,7 @@
 <script>
 	let { selectedRecipeProp, itemCount, planner, recipes, updateCount } = $props();
 	import PlannerRecipe from '$lib/classes/PlannerRecipe';
+	import { buildAssetUrl } from '$lib/utils/assets';
 	function addToPlanner() {
 		const isFound = planner.find((r) => r.id === selectedRecipeProp.id);
 
@@ -21,9 +22,7 @@
 					.listingPath}/{selectedRecipeProp.outputs[0].entity.id}"
 				target="_blank"
 				><img
-					src={'https://gtcdn.info/paxdei/' +
-						selectedRecipeProp.iconPath.replace('{height}', 64) +
-						'?1764356679632'}
+					src={buildAssetUrl(selectedRecipeProp.iconPath)}
 					alt={selectedRecipeProp.name}
 					class="main-icon"
 				/></a
@@ -52,7 +51,7 @@
 			<div class="ingredients-section">
 				<h3>Ingredients</h3>
 				<ul class="ingredients-list">
-					{#each selectedRecipeProp.itemIngredients as ingredient}
+					{#each selectedRecipeProp.itemIngredients as ingredient (ingredient.entity.id)}
 						<li class="ingredient-item">
 							<a
 								href="https://paxdei.gaming.tools/{ingredient.entity.listingPath}/{ingredient.entity
@@ -60,27 +59,25 @@
 								target="_blank"
 								rel="noopener noreferrer"
 								><img
-									src={'https://gtcdn.info/paxdei/' +
-										ingredient.entity.iconPath.replace('{height}', 64) +
-										'?1764356679632'}
+									src={buildAssetUrl(ingredient.entity.iconPath)}
 									alt={ingredient.entity.name}
 									class="ingredient-icon"
 								/></a
 							>
 							<div class="info">
 								<div class="info-title">
-									<img
-										class="ingredient-tier-icon"
-										src={'https://gtcdn.info/paxdei/' +
-											ingredient.entity.tierIconPath.replace('{height}', 64)}
-										alt={ingredient.entity.name}
-									/>
+									{#if ingredient.entity.tierIconPath}
+										<img
+											class="ingredient-tier-icon"
+											src={buildAssetUrl(ingredient.entity.tierIconPath)}
+											alt={ingredient.entity.name}
+										/>
+									{/if}
 									<h4>{ingredient.entity.name} (x{ingredient.count * itemCount})</h4>
 								</div>
 
 								<p>
-									<span>Tier: {ingredient.entity.tier}</span>
-
+									{#if ingredient.entity.tier}<span>Tier: {ingredient.entity.tier}</span>{/if}
 									<span>Type: {ingredient.entity.entityTypeName}</span>
 								</p>
 							</div>
@@ -92,9 +89,16 @@
 		<div class="skill-section">
 			<h3>Required Skill</h3>
 			<div class="skill-info">
-				<p><span>Skill:</span> <span>{selectedRecipeProp.skillRequired.name}</span></p>
-				<p><span>Skill Difficulty:</span> <span>{selectedRecipeProp.skillDifficulty}</span></p>
-				<p><span>Skill Cap:</span> <span>{selectedRecipeProp.skillRequired.skillLevelCap}</span></p>
+				<p>
+					<span>Skill:</span> <span>{selectedRecipeProp.skillRequired?.name ?? 'Unknown'}</span>
+				</p>
+				<p>
+					<span>Skill Difficulty:</span> <span>{selectedRecipeProp.skillDifficulty ?? '-'}</span>
+				</p>
+				<p>
+					<span>Skill Cap:</span>
+					<span>{selectedRecipeProp.skillRequired?.skillLevelCap ?? '-'}</span>
+				</p>
 				<p>
 					<span>Minimum Skill to Unlock:</span>
 					<span
@@ -106,7 +110,7 @@
 				</p>
 
 				<p>
-					{#if selectedRecipeProp.xpMultiplier}<span>XP Multiplier:</span>
+					{#if selectedRecipeProp.xpMultiplier != null}<span>XP Multiplier:</span>
 						<span>{selectedRecipeProp.xpMultiplier}</span>{/if}
 				</p>
 			</div>

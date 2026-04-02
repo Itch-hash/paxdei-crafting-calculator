@@ -1,4 +1,5 @@
 <script>
+	import { buildAssetUrl } from '$lib/utils/assets';
 	let { selectedRecipeProp, recipes } = $props();
 	let relatedRecipes = $state([]);
 
@@ -30,13 +31,13 @@
 
 		<div class="ingredient-for-info">
 			{#if relatedRecipes.length >= 1}
-				{#each relatedRecipes as relatedRecipe}
+				{#each relatedRecipes as relatedRecipe (relatedRecipe.id)}
 					<a
 						href="https://paxdei.gaming.tools/{relatedRecipe.outputs[0].entity
 							.listingPath}/{relatedRecipe.outputs[0].entity.id}"
 						target="_blank"
 						><img
-							src={'https://gtcdn.info/paxdei/' + relatedRecipe.iconPath.replace('{height}', 64)}
+							src={buildAssetUrl(relatedRecipe.iconPath)}
 							alt={relatedRecipe.name}
 							class="ingredient-icon"
 						/></a

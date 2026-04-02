@@ -29,3 +29,10 @@ static-data-recipe.json
 
 #for testing purposes
 backenddp.js
+src/lib/data/recipe.progress.json
+src/lib/data/recipe.scraped.json
+.cache/
+
+
+#scrapping logic
+scripts/
