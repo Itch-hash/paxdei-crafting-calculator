@@ -6,7 +6,7 @@
 
 	let showBlip = $state(false);
 
-	const currentVersion = '1.3';
+	const currentVersion = '2.5';
 
 	$effect(() => {
 		const lastSeenVersion = localStorage.getItem('lastSeenVersion');
@@ -40,6 +40,24 @@
 	<div class="update-menu">
 		<div class="update-content">
 			<button class="close-btn" onclick={() => toggleMenu()}>×</button>
+			<h4>
+				Update <span><i>v 2.5</i>&nbsp;</span><small style="font-size: x-small;"
+					><i> 02-Apr</i>
+				</small>
+			</h4>
+			<ul>
+				<li>
+					With the support of one community member, I have decided to continue maintaining the
+					website! 🔥🔥 <br />
+					I built a method to update all recipes automatically without manually interferring much, took
+					a while, but it worked at the end!
+				</li>
+				<li>
+					All recipes are now updated to the latest patch (1.2)! <br />
+					Please continue reporting any incorrect/missing recipes, and again thank you for using my tool,
+					your support is greatly appreciated.
+				</li>
+			</ul>
 			<h4>
 				Update <span><i>v 2</i>&nbsp;</span><small style="font-size: x-small;"
 					><i> 13-Mar</i>
