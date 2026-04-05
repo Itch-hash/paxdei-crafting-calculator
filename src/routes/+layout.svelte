@@ -40,7 +40,7 @@
 {@render children?.()}
 
 <footer>
-	<p>Pax Dei Crafting Calculator &copy; 2025</p>
+	<p>Pax Dei Crafting Calculator &copy; {new Date().getFullYear()}</p>
 	<p>Made with ❤️ by notsoitchy</p>
 	<p>
 		You can support me by buying me a cup of coffee ☕ <a
