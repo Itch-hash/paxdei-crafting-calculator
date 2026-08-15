@@ -14,12 +14,10 @@
 		}
 		relatedRecipes = results;
 	});
-
-	// $effect(() => console.log(relatedRecipes));
 </script>
 
 {#if !relatedRecipes.length == 0}
-	<section class="ingredient-for-section">
+	<section>
 		<h2>
 			Used Also As An Ingredient For {relatedRecipes.length}
 			{#if relatedRecipes.length == 1}
@@ -29,7 +27,7 @@
 		</h2>
 		<ul id="ingredient-for-list"></ul>
 
-		<div class="ingredient-for-info">
+		<div>
 			{#if relatedRecipes.length >= 1}
 				{#each relatedRecipes as relatedRecipe (relatedRecipe.id)}
 					<a
@@ -47,3 +45,14 @@
 		</div>
 	</section>
 {/if}
+
+<style>
+	.ingredient-icon {
+		width: 7rem;
+		height: 7rem;
+		border-radius: 4px;
+		margin-right: 10px;
+		background: #262a33;
+		flex-shrink: 0;
+	}
+</style>
