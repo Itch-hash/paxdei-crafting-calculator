@@ -1,0 +1,1 @@
+This folder contains the built output assets for the worker "my-sveltekit-worker" generated at 2026-08-15T18:01:08.819Z.

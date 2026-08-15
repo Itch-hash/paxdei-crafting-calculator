@@ -48,7 +48,17 @@
 			let parsed = JSON.parse(saved);
 
 			// MIGRATION OCCURS HERE
-			planner = normalizePlannerTree(parsed);
+			// A saved entry is a denormalized snapshot, so it keeps whatever ingredients and
+			// quantities were current when it was added. Rebuild each one against today's
+			// recipes so a data update reaches saved plans, and drop entries whose recipe no
+			// longer exists — updateCount would otherwise choke on the missing recipe.
+			planner = normalizePlannerTree(parsed)
+				.map((entry) => {
+					const recipe = recipes.find((r) => r.id === entry.id);
+					// count is persisted as a string; PlannerRecipe multiplies with it
+					return recipe ? new PlannerRecipe(recipe, Number(entry.count) || 1, recipes) : null;
+				})
+				.filter(Boolean);
 		}
 	});
 	$effect(() => {
@@ -58,9 +68,9 @@
 	});
 	function updateCount(item, newValue) {
 		const index = planner.findIndex((i) => i.id === item.id);
-		const isFound = planner.find((r) => r.id === item.id);
-		const foundRecipe = recipes.find((r, i, arr) => arr[i].id === isFound.id);
-		planner[index] = new PlannerRecipe(foundRecipe, newValue, recipes);
+		const foundRecipe = recipes.find((r) => r.id === item.id);
+		if (index === -1 || !foundRecipe) return;
+		planner[index] = new PlannerRecipe(foundRecipe, Number(newValue) || 1, recipes);
 	}
 </script>
 

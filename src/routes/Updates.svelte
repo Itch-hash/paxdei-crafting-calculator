@@ -6,7 +6,7 @@
 
 	let showBlip = $state(false);
 
-	const currentVersion = '2.5';
+	const currentVersion = '3';
 
 	$effect(() => {
 		const lastSeenVersion = localStorage.getItem('lastSeenVersion');
@@ -40,6 +40,17 @@
 	<div class="update-menu">
 		<div class="update-content">
 			<button class="close-btn" onclick={() => toggleMenu()}>×</button>
+			<h4>
+				Update <span><i>v 3</i>&nbsp;</span><small style="font-size: x-small;"
+					><i> 15-Aug</i>
+				</small>
+			</h4>
+			<ul>
+				<li>
+					After a long Hiatus, the recipes have been updated to latest game patch (as per current
+					date)
+				</li>
+			</ul>
 			<h4>
 				Update <span><i>v 2.5</i>&nbsp;</span><small style="font-size: x-small;"
 					><i> 02-Apr</i>
